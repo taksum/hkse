@@ -8,29 +8,25 @@ from config import TICKERS, FEEDS_FOLDER
 import datetime as dt
 import pandas as pd
 
+
 PARSING_TIME = '17:30'
 URL          = 'https://quote.ticker.com.hk/api/historical_data/detail/{}/1d'
 
-def get(ticker: str, date: dt.date, url: str, feeds_folder: str) -> None:
-    feeds_path = os.path.join(feeds_folder, ticker)
-    os.makedirs(feeds_path, exist_ok=True)
-    file_path = os.path.join(feeds_path, '{}.csv'.format(date))
-    
-    if not os.path.exists(file_path):
-        r = requests.get(url.format(ticker))
-        df = pd.DataFrame(r.json()['data'])
-        df.to_csv(file_path, index=False)
 
-def run(tickers, url: str, feeds_folder: str) -> None:
-# migrate to with python 3.9:
+# python 3.9
 # def run(tickers: list[str], url: str, feeds_folder: str) -> None:
+def run(tickers, url: str, feeds_folder: str) -> None:
     date = dt.date.today()
     if isTradable(date):
         for ticker in tickers:
             gotcha = False
             while not gotcha:
                 try:
-                    get(ticker, date.strftime('%Y%m%d'), url, feeds_folder)
+                    feeds_path = os.path.join(feeds_folder, ticker)
+                    os.makedirs(feeds_path, exist_ok=True)
+                    r = requests.get(url.format(ticker))
+                    df = pd.DataFrame(r.json()['data'])
+                    df.to_csv(os.path.join(feeds_path, date.strftime('%Y%m%d')+'.csv'), index=False)
                     gotcha = True
                 except:
                     print('retrying...')
