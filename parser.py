@@ -3,13 +3,13 @@ import os
 import time
 import schedule
 import requests
-from utils import isTradable
-from config import TICKERS, FEEDS_FOLDER
 import datetime as dt
 import pandas as pd
+from utils import isTradable
+from config import TICKERS, FEEDS_FOLDER
 
 
-PARSING_TIME = '17:30'
+PARSING_TIME = '16:30'
 URL          = 'https://quote.ticker.com.hk/api/historical_data/detail/{}/1d'
 
 
