@@ -13,7 +13,7 @@ PARSING_TIME = '17:30'
 URL          = 'https://quote.ticker.com.hk/api/historical_data/detail/{}/1d'
 
 
-# python 3.9
+# python 3.9 type hinting
 # def run(tickers: list[str], url: str, feeds_folder: str) -> None:
 def run(tickers, url: str, feeds_folder: str) -> None:
     date = dt.date.today()
