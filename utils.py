@@ -9,15 +9,3 @@ def isTradable(date: dt.date) -> bool:
 
 def loadData(ticker: str, start: str, end: str) -> pd.DataFrame:
     return pd.DataFrame()
-
-
-# Output:
-# False
-# True
-# False
-# True
-if __name__ == "__main__":
-    print(isTradable(dt.date(2020, 7, 1)))
-    print(isTradable(dt.date(2020, 7, 2)))
-    print(isTradable(dt.date(2020, 7, 12)))
-    print(isTradable(dt.date(2020, 7, 13)))
