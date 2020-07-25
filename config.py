@@ -1,4 +1,4 @@
-FEEDS_FOLDER = '.\\feeds'
+FEEDS_FOLDER = 'feeds'
 
 TICKERS = [
     '5',
