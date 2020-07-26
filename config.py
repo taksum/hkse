@@ -22,3 +22,9 @@ TICKERS = [
 ]
 
 PARSING_TIME = '16:30'
+
+STRATS_CONFIG = {
+    'random': {
+        'num': [200, 300],
+    }
+}
