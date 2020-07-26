@@ -8,7 +8,7 @@ def isTradable(date: dt.date) -> bool:
     return date not in holidays.CountryHoliday('HK') and date.weekday() < 5
 
 
-def loadData(ticker, start='', end='', feeds_folder='./feeds') -> pd.DataFrame:
+def loadData(ticker, start='', end='', feeds_folder='./feeds') -> list:
     """Read csv files from feeds folder.
 
     Args:
@@ -41,3 +41,32 @@ def loadData(ticker, start='', end='', feeds_folder='./feeds') -> pd.DataFrame:
     os.chdir(old_cwd)
 
     return l
+
+
+def calTickSize(df: pd.DataFrame) -> float:
+    """Calculate tick size from dataframe.
+
+    Args:
+        df     (DataFrame): Price data of a stock
+
+    Returns:
+        ts         (float): Tick size of the stock 
+
+    """
+    tick_table = {
+        0.25: 0.001,
+        0.5 : 0.005,
+        10  : 0.010,
+        20  : 0.020,
+        100 : 0.050,
+        200 : 0.100,
+        500 : 0.200,
+        1000: 0.500,
+        2000: 1.000,
+        5000: 2.000,
+        9999: 5.000
+    }
+    open_price = df['open'].iloc[0]
+    for p, ts in tick_table.items():
+        if open_price <= p:
+            return ts
