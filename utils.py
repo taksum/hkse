@@ -70,3 +70,7 @@ def calTickSize(df: pd.DataFrame) -> float:
     for p, ts in tick_table.items():
         if open_price <= p:
             return ts
+
+
+def paramsDotProduct(dict):
+    return []
