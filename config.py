@@ -1,7 +1,7 @@
 FEEDS_FOLDER = 'feeds'
 
 TICKERS = [
-'5',
+    '5',
     '27',
     '175',
     '388',
