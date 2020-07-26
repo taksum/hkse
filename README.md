@@ -1,8 +1,12 @@
 ## Generic Research Environment
 
 To create an environment for evaluation and optimization of trading algorithms
-### Flow:
-1. Parse and store trade data
-2. Generate config for individual securities
-3. Backtest by calculating scores of triggers aka trading signals
-4. Gather metrics for analysing and comparing strategies
+
+### parser.py
+1. Set desired tickers and parsing time in 'config.py'
+2. Run and store trade data daily
+
+### research.py
+1. Configure trading algorithms in config.py
+2. Add desired tickers and date range in research.py
+3. Backtest and gather metrics for analysing and comparing strategies
