@@ -8,6 +8,10 @@ def test_isTradable():
     assert(utils.isTradable(dt.date(2020, 7, 2)) == True)
     assert(utils.isTradable(dt.date(2020, 7, 12)) == False)
     assert(utils.isTradable(dt.date(2020, 7, 13)) == True)
+    assert(utils.isTradable('20200701') == False)
+    assert(utils.isTradable('20200702') == True)
+    assert(utils.isTradable('20200712') == False)
+    assert(utils.isTradable('20200713') == True)
 
 def test_loadData():
     ticker = '388'
