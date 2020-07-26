@@ -20,3 +20,5 @@ TICKERS = [
     '9988',
     'HSI.HK',
 ]
+
+PARSING_TIME = '16:30'
