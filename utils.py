@@ -75,14 +75,16 @@ def calTickSize(df: pd.DataFrame) -> float:
             return ts
 
 
-def dotProduct(l: list) -> list:
+def combParams(params: dict) -> list:
     """
     Args:
-        l          (list): list of list containing parameters
-        
+        params        (dict): A dict containing parameters
+
     Returns:
-        dot        (list): list of dot products 
+        params_comb   (list): Combination of all parameters
+
     """
-    dot = list(map(list, product(*l)))
-    return dot
-    
+    params_names = list(params.keys())
+    params_values = list(params.values())
+    dot_product = list(map(list, product(*params_values)))
+    return [dict(zip(params_names, v))for v in dot_product]
