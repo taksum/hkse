@@ -5,7 +5,9 @@ import pandas as pd
 from itertools import product
 
 
-def isTradable(date: dt.date) -> bool:
+def isTradable(date) -> bool:
+    if type(date) is str:
+        date = dt.datetime.strptime(date, '%Y%m%d')
     return date not in holidays.CountryHoliday('HK') and date.weekday() < 5
 
 
