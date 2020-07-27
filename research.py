@@ -1,11 +1,12 @@
 # %%
-import pandas as pd
-import numpy as np
 from utils import *
 from trading import random
 from performance import *
-from config import STRATS_CONFIG
+from config import STRATS_PARAMS, FEEDS_FOLDER
 
+
+start_date = '20200715'
+end_date = '20200721'
 
 tickers = [
     '9988',
@@ -18,7 +19,7 @@ strats =[
 ]
 
 for ticker in tickers:
-    dataframes = loadData(ticker)
+    dataframes = loadData(ticker, start_date, end_date, FEEDS_FOLDER)
     result = {}
     for strat in strats:
         for df in dataframes:

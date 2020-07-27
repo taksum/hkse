@@ -29,8 +29,9 @@ TICKERS = [
 
 PARSING_TIME = '16:30'
 
-STRATS_CONFIG = {
+STRATS_PARAMS = {
     'random': {
         'num': [200, 300],
+        'foo': [1, 2, 3],
     }
 }
