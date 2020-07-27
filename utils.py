@@ -2,6 +2,7 @@ import os
 import holidays
 import datetime as dt
 import pandas as pd
+from itertools import product
 
 
 def isTradable(date: dt.date) -> bool:
@@ -70,3 +71,16 @@ def calTickSize(df: pd.DataFrame) -> float:
     for p, ts in tick_table.items():
         if open_price <= p:
             return ts
+
+
+def dotProduct(l: list) -> list:
+    """
+    Args:
+        l          (list): list of list containing parameters
+        
+    Returns:
+        dot        (list): list of dot products 
+    """
+    dot = list(product(*l))
+    return dot
+    
