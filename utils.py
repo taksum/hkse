@@ -83,6 +83,6 @@ def dotProduct(l: list) -> list:
     Returns:
         dot        (list): list of dot products 
     """
-    dot = list(product(*l))
+    dot = list(map(list, product(*l)))
     return dot
     
